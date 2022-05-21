@@ -1,0 +1,10 @@
+---
+applications:
+- name: sudoku-generator
+  routes:
+    - route: sudoku-fd689478trial.cfapps.us10.hana.ondemand.com
+  path: ./
+  memory: 128M
+  disk_quota: 300M
+  buildpack: python_buildpack
+  command: python server.py
