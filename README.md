@@ -12,6 +12,15 @@ cf deploy
 
 ## Usage
 
+### API call
+After deploy the python program you can use:
+
+#### Default call (board 3x3 and 0.5 dificulty)
+https://sudoku-fd689478trial.cfapps.us10.hana.ondemand.com/
+
+#### Default call (board <size> x <size> and dificulty <dificulty> )
+https://sudoku-fd689478trial.cfapps.us10.hana.ondemand.com/custom?size=2&dificulty=0.1
+
 ### Python
 ```python
 #Generate the board
