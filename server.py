@@ -7,7 +7,7 @@ app = Flask(__name__)
 port = int(os.environ.get('PORT', 3000))
 
 @app.route('/')
-def hello():
+def generator():
     puzzle = Sudoku(3).difficulty(0.5)
     solution = puzzle.solve()
 
