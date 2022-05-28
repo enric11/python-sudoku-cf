@@ -1,2 +1,5 @@
 Flask==2.0.1
 py-sudoku==1.0.2
+sap-xssec==3.0.0
+cfenv==0.5.3
+

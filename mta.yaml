@@ -1,0 +1,31 @@
+ID: sudoku-generator
+_schema-version: '3.3'
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: sudoku-generator-srv
+    type: python
+    path: ./
+    parameters:
+      memory: 200M   # Specifying theses quotas is important as they specify how much of the assigned entitlement is assigned once the module is started
+      disk-quota: 300M
+      command: python server.py
+    requires:
+    - name: sudoku-generator-uaa
+    build-parameters:
+      ignore: ["mta_archives/"] 
+    #Destinations Test
+    provides:
+    - name: sudoku-binding-dest
+      properties:
+        srv-url: ${default-url}
+resources:
+  - name: sudoku-generator-uaa
+    parameters:
+      path: ./xs-security.json  
+      service: xsuaa    
+      service-plan: application
+      service-keys: 
+        - name: sudoku-generator-key      
+    type: org.cloudfoundry.managed-service   
